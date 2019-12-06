@@ -42,7 +42,7 @@ public class OthelloPosition extends Position implements Cloneable ,Serializable
 		String[] pawns = positionToParse.split(",");
 		
 		for(int i=0;i<pawns.length;i++){
-			int value = Integer.valueOf(pawns[i]);
+			int value = Integer.parseInt(pawns[i]);
 			setValueAt(i%8, i/8, value);
 		}
 		 doCounters();
@@ -126,10 +126,10 @@ public class OthelloPosition extends Position implements Cloneable ,Serializable
 		int white = 0, black = 0;
 		int whiteSpace = 0, blackSpace = 0;
 		StringBuilder builder = new StringBuilder();
-		for (int i = 0; i < getWidth(); i++)
-			for (int j = 0; j < getHeight(); j++) {
+		for (int j = 0; j < getHeight(); j++)
+			for (int i = 0; i < getWidth(); i++) {
 				int valueAt = getValueAt(i, j);
-				builder.append(valueAt+",");
+				builder.append(valueAt).append(",");
 				switch (valueAt) {
 				case EMPTY:
 					continue;

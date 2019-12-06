@@ -44,6 +44,7 @@ public class OthelloRestcontroller {
       @ModelAttribute("engine") OthelloEngine engine) {
     OthelloPosition pos = engine.getCurrentPosition();
     OthelloPosition posnew = new OthelloPosition(pos.getPositionString());
+
     posnew.makeMove(x, y);
     return posnew;
   }
