@@ -3,6 +3,7 @@ package be.dechamps.web;
 import be.dechamps.model.OthelloEngine;
 import be.dechamps.model.Position;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,7 +24,7 @@ public class OthelloRestcontroller {
   }
 
   @GetMapping("/start")
-  public Position start(HttpServletRequest session) {
+  public Position start(HttpSession session) {
     OthelloEngine engine = new OthelloEngine();
     session.setAttribute("engine", engine);
 
