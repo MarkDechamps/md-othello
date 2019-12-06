@@ -34,6 +34,7 @@ public class OthelloPosition extends Position implements Cloneable ,Serializable
 	
 	public OthelloPosition() {
 		super(8,8);
+		doCounters();
 	}
 
 	public OthelloPosition(String positionToParse) {
