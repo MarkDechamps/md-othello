@@ -1,6 +1,7 @@
 package be.dechamps.web;
 
 import be.dechamps.model.OthelloEngine;
+import be.dechamps.model.OthelloPosition;
 import be.dechamps.model.Position;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -38,4 +39,23 @@ public class OthelloRestcontroller {
     engine.thinkAndMove();
     return engine.getCurrentPosition();
   }
+  @GetMapping("/movefake")
+  public Position moveFake(@RequestParam("x") int x, @RequestParam("y") int y,
+      @ModelAttribute("engine") OthelloEngine engine) {
+    OthelloPosition pos = engine.getCurrentPosition();
+    OthelloPosition posnew = new OthelloPosition(pos.getPositionString());
+    posnew.makeMove(x, y);
+    return posnew;
+  }
+  @GetMapping("/justmove")
+  public Position justMove(@RequestParam("x") int x, @RequestParam("y") int y,
+      @ModelAttribute("engine") OthelloEngine engine) {
+    engine.thinkAndMove();
+    return engine.getCurrentPosition();
+  }
+  @GetMapping("/isgameover")
+  public Boolean isGameOver( @ModelAttribute("engine") OthelloEngine engine){
+    return engine.isGameOver();
+  }
+
 }
