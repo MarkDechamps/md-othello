@@ -3,8 +3,7 @@ Othello engine
 
 This is an Othello engine in plain simple java I once hacked together in a few evenings. 
 It actually plays rather good (according to my standards :))
-It needs some cleaning up and a rest interface so we can talk to it.
-But the api should be rather straight forward.
+The api should be rather straight forward.
 
 There used to be a crappy ui on top of it and it still runs here http://mdothello.appspot.com/othello
 That frontend code is not in this repo. But it plays so you can have an impression of the engine.
